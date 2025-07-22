@@ -1133,6 +1133,7 @@ anova(fm14, fm15, refit=TRUE)
 ```
 
 ### We report final model of First Run Dwell Time
+
 ```{r}
 #| label: fm_final-First Run 
 
@@ -1158,6 +1159,7 @@ summary(fm_final_first_run)
 ### plot the interaction between Noun_Word_Frequency and MWS_Frequency from First Run Dwell Time model
 
 The facilitative effect of Noun Word Frequency diminishes and reverses as MWS Frequency increases
+
 ```{r}
 #| label: plot <Noun_Word_Frequency_scale_center:MWS_Frequency_scale_center>first_run
 
@@ -1179,6 +1181,7 @@ ggplot(effectXY_first_run, aes(y = pred_ms, x= Noun_Word_Frequency_scale_center,
 ### plot the interaction between Adj_Word_Frequency, MWS_Frequency and group from First Run Dwell Time model
 
 This interaction is very similar to what we found in total reading time
+
 ```{r}
 #| label: plot <GROUP_sum:Adj_Word_Frequency_scale_center:MWS_Frequency_scale_center>-First-Run
 
@@ -1525,6 +1528,7 @@ anova(fm14, fm15, refit=TRUE)
 ```
 
 ### Final model for Regression Path Duration (RPD) reported below
+
 ```{r}
 #| label: fm_final- Regression Path Duration
 
@@ -1548,6 +1552,7 @@ summary(fm_final_RPD)
 ### There is an 3-way interaction between Group, Adj_word_frequency and MWS frequency
 
 Similar pattern again to total reading time and first-run reading time
+
 ```{r}
 #| label: plot <GROUP_sum:Adj_Word_Frequency_scale_center:MWS_Frequency_scale_center> for Regression Path 
 
@@ -1569,8 +1574,10 @@ ggplot(effectXYl_RPD, aes(y = pred_ms, x= Adj_Word_Frequency_scale_center, color
   facet_wrap(~GROUP_sum )
 ```
 
-### There is an interaction between  Group and MWS frequency
+### There is an interaction between Group and MWS frequency
+
 <just check>
+
 ```{r}
 #| label: plot GROUP_sum:MWS_Frequency_scale_center from Regression Path
 
@@ -1584,8 +1591,10 @@ ggplot(effectXY_final_RPD, aes(y = pred_ms, x= MWS_Frequency_scale_center, color
   geom_errorbar(aes ( ymin=pred_ms-se_ms, ymax=pred_ms+se_ms,  width=0.3))
 ```
 
-### There is an interaction between  Group and Adj_Word_Frequency
-<just check, not really meaningful>
+### There is an interaction between Group and Adj_Word_Frequency
+
+\<just check, not really meaningful\>
+
 ```{r}
 #| label: plot GROUP_sum:Adj_Word_Frequency_scale_center from Regression Path
 
@@ -2323,6 +2332,7 @@ anova(fm13, fm15)
 ```
 
 ### Here, the summary of the final model for skipping
+
 ```{r}
 #| label: fm_final_skip
 
@@ -2359,10 +2369,6 @@ ggplot(effectXY_SRPD, aes(y = pred_ms, x= Adj_Word_Frequency_scale_center, color
   geom_point(aes())+
   geom_errorbar(aes ( ymin=pred_ms-se_ms, ymax=pred_ms+se_ms,  width=0.3))
 ```
-
-
-
-
 
 ## Fixation Count
 
@@ -2655,6 +2661,7 @@ summary(fm15)
 ```
 
 # Final model for fixation counts
+
 ```{r}
 #| label: fm_final_COUNT
 
@@ -2677,6 +2684,7 @@ summary(fm_final_count)
 ```
 
 # Here, to plot Noun_Word_Frequency:MWS_Frequency
+
 ```{r}
 #| label: plot <Noun_Word_Frequency_scale_center:MWS_Frequency_scale_center>-Fixation_count
 
@@ -2698,6 +2706,7 @@ ggplot(effectXY_count, aes(y = pred_ms, x= Noun_Word_Frequency_scale_center, col
 ```
 
 # Here, to plot GROUP:Adj_Word_Frequency:MWS_Frequency
+
 ```{r}
 #| label: plot <GROUP_sum:Adj_Word_Frequency_scale_center:MWS_Frequency_scale_center>-fixation-count
 
@@ -2717,7 +2726,6 @@ ggplot(effectXY_count, aes(y = pred_ms, x= Adj_Word_Frequency_scale_center, colo
   geom_errorbar(aes ( ymin=pred_ms-se_ms, ymax=pred_ms+se_ms,  width=0.3))+
   facet_wrap(~GROUP_sum )
 ```
-
 
 # Nouns
 
@@ -3046,6 +3054,7 @@ summary(fm15)
 ```
 
 # Report final model for Total Reading Time
+
 ```{r}
 #| label: fm_final-total-reading-time-nouns
 
@@ -3072,6 +3081,7 @@ vif(fm_final_noun_total_time)
 ```
 
 ### Plot Group x Adj_Word_Frequency x MWS_Frequency
+
 ```{r}
 #| label: plot <GROUP_sum:Adj_Word_Frequency_scale_center:MWS_Frequency_scale_center>-noun_total_time
 
@@ -3095,6 +3105,7 @@ ggplot(effectXY_noun_total_time, aes(y = pred_ms, x= Adj_Word_Frequency_scale_ce
 ```
 
 ### Plot Noun_Word_Frequency x MWS_Frequency
+
 ```{r}
 effectXY_noun_total_time<-as.data.frame(effect("Noun_Word_Frequency_scale_center:MWS_Frequency_scale_center", fm_final_noun_total_time))
 
@@ -3112,7 +3123,6 @@ ggplot(effectXY_noun_total_time, aes(y = pred_ms, x= Noun_Word_Frequency_scale_c
   geom_errorbar(aes ( ymin=pred_ms-se_ms, ymax=pred_ms+se_ms,  width=0.3))
 
 ```
-
 
 ## First Fixation Duration
 
@@ -3435,6 +3445,7 @@ anova(fm14, fm15, refit=TRUE)
 ```
 
 ### Find the best fitting model for noun FFD
+
 ```{r}
 #| label: fm_final-noun FFD
 fm_final_noun_FFD <- lmer(IA_FIRST_FIXATION_DURATION_LOG ~ 
@@ -3452,6 +3463,7 @@ summary(fm_final_noun_FFD)
 ```
 
 ### Plot Group: Adj_Word_Frequency
+
 ```{r}
 #| label: plot <GROUP_sum:Adj_Word_Frequency_scale_center>-noun_FFD
 
@@ -3465,7 +3477,6 @@ ggplot(effectXY_noun_FFD, aes(y = pred_ms, x= Adj_Word_Frequency_scale_center, c
   geom_point(aes())+
   geom_errorbar(aes ( ymin=pred_ms-se_ms, ymax=pred_ms+se_ms,  width=0.3))
 ```
-
 
 ## First Run Dwell Time
 
@@ -3818,6 +3829,7 @@ summary(fm_final_noun_FRD)
 ```
 
 # Report GROUP :Adj_Word_Frequency: MWS_Frequency
+
 ```{r}
 #| label: plot <GROUP_sum:Adj_Word_Frequency_scale_center:MWS_Frequency_scale_center>
 
@@ -3838,7 +3850,6 @@ ggplot(effectXY_noun_FRD, aes(y = pred_ms, x= Adj_Word_Frequency_scale_center, c
   geom_errorbar(aes ( ymin=pred_ms-se_ms, ymax=pred_ms+se_ms,  width=0.3))+
   facet_wrap(~ GROUP_sum)
 ```
-
 
 ```{r}
 #| label: plot <Noun_Word_Frequency_scale_center:MWS_Frequency_scale_center>-noun_FRD
@@ -4200,6 +4211,7 @@ summary(fm_final_noun_RPD)
 ```
 
 ### Report Noun_Word_Frequency :MWS_Frequency
+
 ```{r}
 #| label: plot <Noun_Word_Frequency_scale_center:MWS_Frequency_scale_center>-noun_RPD
 
@@ -4219,6 +4231,7 @@ ggplot(effectXY_noun_RPD, aes(y = pred_ms, x= Noun_Word_Frequency_scale_center, 
 ```
 
 ### Report GROUP : Adj_Word_Frequence : MWS_Frequency
+
 ```{r}
 #| label: plot <GROUP_sum:Adj_Word_Frequency_scale_center:MWS_Frequency_scale_center>-noun_RPD
 
@@ -4600,6 +4613,7 @@ summary(fm_final_noun_SRPD)
 ```
 
 ### Plot GROUP : Adj_Word_Frequency : MWS_Frequency
+
 ```{r}
 #| label: plot <GROUP_sum:Adj_Word_Frequency_scale_center:MWS_Frequency_scale_center-noun_SRPD
 
@@ -4621,6 +4635,7 @@ ggplot(effectXY_noun_SRPD, aes(y = pred_ms, x= Adj_Word_Frequency_scale_center, 
 ```
 
 ### Plot Noun_Word_Frequency : MWS_Frequency
+
 ```{r}
 #| label: plot <Noun_Word_Frequency_scale_center:MWS_Frequency_scale_center>-noun_SRPD
 
@@ -4995,6 +5010,7 @@ summary(fm_final_noun_skip)
 ```
 
 ### Plot Adj_Word_Frequency : MWS_Frequency
+
 ```{r}
 #| label: plot <Adj_Word_Frequency:MWS_Frequency_scale_center>-noun_skip 
 
@@ -5008,7 +5024,6 @@ ggplot(effectXY_noun_skip, aes(y = pred_ms, x= Adj_Word_Frequency_scale_center, 
   geom_errorbar(aes ( ymin=pred_ms-se_ms, ymax=pred_ms+se_ms,  width=0.3))
 
 ```
-
 
 ## Fixation Count
 
@@ -5383,4 +5398,3 @@ ggplot(effectXY_noun_count, aes(y = pred_ms, x= Adj_Word_Frequency_scale_center,
 
 
 ```
-
