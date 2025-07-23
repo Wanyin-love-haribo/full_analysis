@@ -12,7 +12,6 @@ library(lme4)
 #========================================================================================================#
 #                                     Import Eye-tracking data (text)                                    #
 #========================================================================================================#
-GECOs <- read.delim(file.choose(),header = TRUE, sep = "\t", encoding = "UTF-8", quote = "", na.strings=".")
 
 #------------ total reading time ------------# 
 GECOs$IA_DWELL_TIME_100 <- GECOs$IA_DWELL_TIME
@@ -23,10 +22,6 @@ GECOs$IA_FIRST_FIXATION_DURATION[GECOs$IA_FIRST_FIXATION_DURATION <100] <- NA
 GECOs$IA_FIRST_RUN_DWELL_TIME[GECOs$IA_FIRST_RUN_DWELL_TIME <100] <- NA
 GECOs$IA_REGRESSION_PATH_DURATION[GECOs$IA_REGRESSION_PATH_DURATION <100] <- NA
 GECOs$IA_SELECTIVE_REGRESSION_PATH_DURATION[GECOs$IA_SELECTIVE_REGRESSION_PATH_DURATION <100] <- NA
-
-
-
-LEXTALE <- read.delim(file.choose(),header = TRUE, sep = "\t", encoding = "UTF-8", quote = "", na.strings=".")
 
 Data_full <-GECOs %>% left_join(LEXTALE )
 

@@ -15,9 +15,13 @@ execute:
 #### The following code applies to all models:
 
 ```{r}
-#|label: source pre-processing codes
-#|
-source("pre-processing.R")
+#|label: source pre-processing codes and read MWS data
+
+GECOs <- read.delim('Data_MWS.txt', header = TRUE, sep = "\t", encoding = "UTF-8", quote = "", na.strings=".")
+
+LEXTALE <- read.delim('LEXTALE.txt', header = TRUE, sep = "\t", encoding = "UTF-8", quote = "", na.strings=".")
+
+source("pre-processing_v2.R")
 library(lme4)
 library(lmerTest)
 library(effects)
@@ -2734,7 +2738,9 @@ ggplot(effectXY_count, aes(y = pred_ms, x= Adj_Word_Frequency_scale_center, colo
 #| label: read data for noun regions
 
 #|label: source pre-processing codes
-source("pre-processing.R")
+GECOs <- read.delim('Data_Nouns.txt',header = TRUE, sep = "\t", encoding = "UTF-8", quote = "", na.strings=".")
+
+source("pre-processing_v2.R")
 library(lme4)
 library(lmerTest)
 library(effects)
